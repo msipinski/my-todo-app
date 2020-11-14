@@ -1,0 +1,26 @@
+{{#alerts}}
+    {{#added}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Note has been successfully added!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {{/added}}
+    {{#updated}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Note has been successfully updated!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {{/updated}}
+    {{#deleted}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Note has been successfully removed!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {{/deleted}}
+{{/alerts}}

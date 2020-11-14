@@ -1,0 +1,47 @@
+<table class="table table-hover" style="display: none;">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Due Date</th>
+        <th class="text-right">Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#notes}}
+        <tr id="note-{{id}}">
+
+            <td><a href="note?id={{id}}">{{title}}</a></td>
+            <td><span class="badge">{{status}}</span></td>
+            <td><span>{{dueDate}}</span></td>
+            <td class="d-flex">
+                <!--TODO: change to POST-->
+                <div class="ml-auto">
+                    <a class="btn btn-danger btn-sm" href="delete-note?id={{id}}">
+                    <span aria-hidden="true">&times;</span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    {{/notes}}
+    </tbody>
+    <script>
+        for (let element of $("td span.badge")) {
+            element = $(element)
+            switch (element.html()) {
+                case "PENDING":
+                    element.html("Pending").addClass("badge-secondary")
+                    break
+                case "IN_PROGRESS":
+                    element.html("In Progress").addClass("badge-warning")
+                    break
+                case "DONE":
+                    element.html("Done").addClass("badge-success")
+                    break
+            }
+        }
+        if ($("tbody tr").length > 0) {
+            $("table").show()
+        }
+    </script>
+</table>

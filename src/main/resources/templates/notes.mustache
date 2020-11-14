@@ -1,0 +1,50 @@
+{{#layout}}
+    <!--navigation header-->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">My Todo App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/notes">Notes <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            {{^authenticated}}
+                <div class="btn btn-group btn-group-sm p-0">
+                    <a class="btn btn-sm btn-outline-primary" href="/login">Log in</a>
+                    <a class="btn btn-sm btn-outline-secondary" href="/register">Register</a>
+                </div>
+            {{/authenticated}}
+            {{#authenticated}}
+                <span class="navbar-text pl-md-2 pr-2">
+                    {{name}}
+                </span>
+                <a class="btn btn-sm btn-outline-primary" href="/logout">Log out</a>
+            {{/authenticated}}
+        </div>
+    </nav>
+
+    {{>frags/alerts}}
+    <div class="container">
+<!--        &lt;!&ndash;menu&ndash;&gt;-->
+<!--        <a href="/"><span class="my-2 btn btn-primary">Home</span></a>-->
+<!--        <a href="/h2-console"><span class="my-2 btn btn-primary">Console</span></a>-->
+<!--        <a href="/logout"><span class="my-2 btn btn-primary">Log out</span></a>-->
+        <!--form-->
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                {{>frags/form-new-note}}
+            </div>
+        </div>
+        <!--notes-->
+        {{>frags/table-notes}}
+    </div>
+{{/layout}}
+{{>layout}}
